@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## Página sobre a Pesquisa de Julgamentos Virtuais
 
-You can use the [editor on GitHub](https://github.com/euleralencar/pesquisapv.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### Objetivo da pesquisa
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+O projeto de pesquisa objetiva analisar como o mecanismo do Plenário Virtual foi utilizado pelo Supremo Tribunal Federal durante o período de pandemia no ano de 2020, tratando-se, portanto, de uma pesquisa descritiva.
 
-### Markdown
+Pretende-se também proceder a uma análise comparativa em relação à maneira como o Tribunal utilizava o PV em um período anterior e como passou a utilizá-lo durante a pandemia.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Relatório Parcial
 
-```markdown
-Syntax highlighted code block
+O relatório parcial da pesquisa pode ser obtido neste [link](https://euleralencar.github.io/pesquisapv/pages/relatorio_decisoes).
 
-# Header 1
-## Header 2
-### Header 3
+### Equipe de pesquisa
 
-- Bulleted
-- List
+Secretaria de Altos Estudos (SAE) e Secretaria de Gestão Estratégica (SGE) do STF
 
-1. Numbered
-2. List
+### Suporte, dúvidas e contatos.
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/euleralencar/pesquisapv.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Mais informações pode ser obtidas pelo email xxxx@stf.jus.br.
