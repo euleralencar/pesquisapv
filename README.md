@@ -3,6 +3,23 @@
 [![hackmd-github-sync-badge](https://hackmd.io/VMJnzZ0USWCwGRc27kQmHQ/badge)](https://hackmd.io/VMJnzZ0USWCwGRc27kQmHQ)
 
 
+## Objetivo
+
+
+O projeto de pesquisa tem como objetivo analisar o mecanismo do Plenário Virtual e sua utilização pelo Supremo Tribunal Federal durante o período de pandemia no ano de 2020, tratando-se, portanto, de uma pesquisa descritiva e exploratória.
+
+Pretende-se também proceder a uma análise comparativa em relação à maneira como o Tribunal utilizava o PV em um período anterior e como passou a utilizá-lo durante a pandemia.
+
+Para chegar as respostas esse primeiro estudo trilhará os seguintes passos:
+
+1. Análise geral das decisões no período de 2006 até 2021;
+1. Análise do comportamento de decisoes monocráticas e colegiadas e como este último tem se comportado comparativamente;
+1. Análise sobre o colegiado e buscar respostas sobre como o ambiente virtual vem sendo usado ao longo do anos, dado as emendas regimentais trazidas nos últimos anos que buscavam a modernização da Corte;
+1. Análise sobre o impacto das decisões virtuais nos tipos de processos que vão ao plenário ou turma;
+1. Análise sobre o comportamento de votação no Plenário Virtual nos período imediamente antes e imediatamente após a pandemia;
+2. Análise dos pedidos de destaque e sustentações orais;
+
+
 ## Bases de Dados
 
 Para trabalhar com a pesquisa de dados utilizamos quatro bases que se complementam:
