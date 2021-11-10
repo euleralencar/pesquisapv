@@ -12,6 +12,8 @@ Para trabalhar com a pesquisa de dados utilizamos quatro bases que se complement
 3. Base de destaques;
 4. Base de sustentações orais.
 
+Essas bases podem ser acessadas na pasta \dados desse github.
+
 ## Dicionário de dados
 
 ### 1. Base de decisões
@@ -20,22 +22,18 @@ O estudo foi realizado a partir de dados coletados Portal de Informações Geren
 
 Este sistema faz registro de diversas dimensões de dados do STF, desde recebimento do processo no STF até sua baixa. **Para o presente estudo foram extraídos dados de decisão de 01.01.2006 até 31.06.2021.**
 
+Dicionário :book: 
+
 1. **classe**: classe processual;
 1. **numero**: número associado a classe processual acima;
 1. **link**: composição entre classe processual e seu número, criando uma chave única para cada processo;
-1. ~~* **meio_processovariável** que verifica se é um processo físico ou eletrônico;~~
 1. **data_autuacao**: data em que o processo foi autuado (entrou) no STF;
 1. **data_baixa**: data em que o processo foi baixado no STF, isto é, é um processo que não faz parte mais do rol de processos em tramitação do Tribunal;
 1. ~~* **relator_atual**: é variável que registra o relator atual do processo. Caso o processo já tenha sido baixado, o relator atual será o último ministro que tenha ficado como do processo, que pode ser diferente do nome_ministro abaixo;~~
 1. **nome_ministro_a**: variável que registra o ministro responsável pela decisão. Quando o relator submete ao plenário e vence, seu nome é registrado nessa variável. Quando o relator é vencido, então é utilizado o primeiro ministro a discordar do relator como referência para decisão;
-1. ~~* **mes_andamento** mês da decisão;~~
 1. **data_andamento**: data da decisão;
 1. **observacao_andamento**: campo livre que permite inclusão de informações adicionais sobre a decisão do processo. É uma variável rica para exploração;
 1. **subgrupo_andamento_comissao**: variável que registra o grupo que o andamento de decisão pertence, por exemplo, se é uma decisão do grupo liminar, se é uma decisão do grupo final, e assim por diante;
-1. ~~* **primeira_decisao_final**: andamento da primeira decisão final;~~
-1. ~~* **data_primeira_decisao_final**: data da primeira decisão final;~~
-1. ~~* **primeira_decisao_liminar**: andamento da primeira decisão liminar;~~
-1. ~~* **data_primeira_decisao_liminar**: data da primeira decisão liminar;~~
 1. **orgao_julgador**: Indica qual origem da decisão, seja ela monocrática ou colegiada;
 1. **tipo_decisao**: Informa se a decisão é monocrática ou colegiada;
 1. **ramo_direito_novo**: É classificado pelo tipo da matéria do processo que corresponde ao primeiro assunto do processo;
@@ -49,8 +47,8 @@ Este sistema faz registro de diversas dimensões de dados do STF, desde recebime
     * Fora destes dois períodos é cadastrada como não se aplica.
 
 **Observações metodologicas:**
-- - Registramos sobre o problema dos virtuais?
-- Foi criado ramo do direito novo 2 com alguns ajustes de classificação no ramo do direito. Acho importante registrar na metodologia, conforme abaixo:
+- Foi realizado correção na variável órgão julgador, que registra o responsável pela decisão seja ministro ou órgão colegiado. Para isso, é realizado a combinação das variáveis **orgao_julgador** e a busca do termo *"Sessão Virtual"* no campo **observacao_andamento**. Dessa forma, podemos encontrar os valores dos julgamentos virtuais;
+- Foi criado uma nova variável ramo_direito_novo (versão 2) com alguns ajustes de classificação no ramo do direito. A tabela de ajuste, conforme abaixo:
 
 
 |ramo_direito_novo                                                                      |para_ramo_direito                                           |
@@ -76,16 +74,63 @@ Este sistema faz registro de diversas dimensões de dados do STF, desde recebime
 |SUPREMO TRIBUNAL FEDERAL                                                               |ASSUNTOS DIVERSOS                                           |
 |SEGURANÇA PÚBLICA                                                                      |ASSUNTOS DIVERSOS                                           |
 
-
-Baixar as bases:
-
-
-
 ### 2. Base de votos;
 
+Dicionário :book: 
+- **id_voto**: número único que identifica cada voto;
+- **id_julgamento**: número único que identifica cada julgamento. Se um processo foi julgado mais de uma vez, será registrado com dois id_julgamentos diferentes;
+- **classe**: Classe processual;
+- **numero**: Número único associado a classe;
+- **id_processo**: Combinação da classe e número que dá um número único a cada processo;
+- **tipo_julgamento**:
+- **sigla_ministro_voto**:
+- **nome_ministro_voto**:
+- **descricao_do_voto**:
+- **data_hora_voto**:
+- **ambiente_voto**:
+
+#### **Notas metodológicas** :bookmark: 
+
+Metodologicamente, é quase impossível que os números batam integralmente, pois a base de votos é contabilizada no nível de ministro a ministro com suas respectivas data de votação. Acontece que há entre o primeiro e o último voto diferença temporal que impactaria a entrada daquele processo dentro da base.
+
+Poderia acontecer da votação começar fora do período da pesquisa (primeiro voto) e finalizar dentro do período da pesquisa (último voto) ou o contrário, começar dentro do período (primeiro voto) e finalizar fora (último voto). Outra possibilidade é começar no período “pre-pandamia” e finalizar no período “pos-pandemia”.
+
+Isso poderia trazer algumas dificuldades de manipulação da base que aumentariam a complexidade com pouco benefício em termos de identificação de padrões estatísticos.
+
+Assim, para estabelecimento de uma uniformidade metodolófica, utilizou-se como referência a data do último voto como data daquele julgamento. Assim, se a data do último voto daquele processo estiver dentro do período da pesquisa, então seria contabilizado dentro da base, caso contrário seria descartado.
+
+A diferença para a base de decisões é que poderia ocorrer uma votação antes do período da pesquisa, mas se ela foi registrada dentro do período, seria incluida na base de análise. Assim, é possível ocorrer pequenas divergências (~ 100 processos por ambiente de decisão) entre a base de decisões e a base de votos.
+
+Para manipulação da base foram considerados somente os votos dentro do período da pesquisa, isto é de 19/06/2019 a 31/12/2020 e foram retirados os ministros que se declaração suspeitos ou impedidos. 
 
 ### 3. Base de destaques;
 
+Dicionário :book: 
 
-### 4. Base de sustentações orais.
+- **classe**: Classe processual;
+- **numero**: Número único associado a classe;
+- **id_processo**: Combinação da classe e número que dá um número único a cada processo;
+- **tipo_pedido_destaqueo**: Identifica se o destaque era sobre mérito ou recurso;
+- **ministro_pedido_destaque**: Ministro que solicitou o destaque;
+- **descricao_andamento**: Andamento de associado ao destaque "Retirado do Julgamento Virtual" associado com a observação do andamento "Pedido de destaque";
+- **obs_pedido_destaque**: Os pedidos de destaque são registrados nesse campo como "Pedido de destaque"
+- **data_destaque**: data do andamento de "Retirado do Julgamento Virtual";
+- **periodo_destaque**: identifica que se foi no período pré-pandemia, pós-pandemia ou fora destes dois períodos.
 
+
+### 4. Base de sustentações orais. :construction: 
+
+Em construção. 
+
+
+## 5. Baixar os dados
+
+Os dados podem ser baixados na pasta **dados** desse Git. Os arquivos foram salvos em RDS por questões de otimização. Para baixar os arquivos basta baixar o programa R e usar o script a seguir:
+
+```{R}
+decisao <- readRDS(file="01-data//base_decisoes.RDS")
+
+votos <- readRDS(file="01-data//base_votos.RDS")
+
+destaque <- readRDS(file="01-data//base_destaque.RDS")
+```
