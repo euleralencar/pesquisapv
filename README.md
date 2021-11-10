@@ -145,9 +145,9 @@ Em construção.
 Os dados podem ser baixados na pasta **dados** desse Git. Os arquivos foram salvos em RDS por questões de otimização. Para baixar os arquivos basta baixar o programa R e usar o script a seguir:
 
 ```{R}
-decisao <- readRDS(file="01-data//base_decisoes.RDS")
+decisao <- readRDS(file="data//base_decisoes.RDS")
 
-votos <- readRDS(file="01-data//base_votos.RDS")
+votos <- readRDS(file="data//base_votos.RDS")
 
-destaque <- readRDS(file="01-data//base_destaque.RDS")
+destaque <- readRDS(file="data//base_destaque.RDS")
 ```
